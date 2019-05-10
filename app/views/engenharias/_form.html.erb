@@ -1,0 +1,32 @@
+<%= form_with(model: engenharia, local: true) do |form| %>
+  <% if engenharia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(engenharia.errors.count, "error") %> prohibited this engenharia from being saved:</h2>
+
+      <ul>
+      <% engenharia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
