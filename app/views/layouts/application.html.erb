@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UriBeerShop</title>
+    <title>Uri Beer Shop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag asset_path('favicon.png') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <div class="global-content">
+      <%= render partial: "shared/sidebar" %>
+      <%= yield %>
+    </div>
   </body>
 </html>

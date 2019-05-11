@@ -1,28 +1,20 @@
 class EngenhariasController < ApplicationController
   before_action :set_engenharia, only: [:show, :edit, :update, :destroy]
 
-  # GET /engenharias
-  # GET /engenharias.json
   def index
     @engenharias = Engenharia.all
   end
 
-  # GET /engenharias/1
-  # GET /engenharias/1.json
   def show
   end
 
-  # GET /engenharias/new
   def new
     @engenharia = Engenharia.new
   end
 
-  # GET /engenharias/1/edit
   def edit
   end
 
-  # POST /engenharias
-  # POST /engenharias.json
   def create
     @engenharia = Engenharia.new(engenharia_params)
 
@@ -37,8 +29,6 @@ class EngenhariasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /engenharias/1
-  # PATCH/PUT /engenharias/1.json
   def update
     respond_to do |format|
       if @engenharia.update(engenharia_params)
@@ -51,8 +41,6 @@ class EngenhariasController < ApplicationController
     end
   end
 
-  # DELETE /engenharias/1
-  # DELETE /engenharias/1.json
   def destroy
     @engenharia.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class EngenhariasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_engenharia
       @engenharia = Engenharia.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def engenharia_params
       params.require(:engenharia).permit(:descricao, :status, :usuario_id)
     end

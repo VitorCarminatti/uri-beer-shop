@@ -1,0 +1,37 @@
+<div class="content-wrapper">
+  <div class="wrapper">
+    <nav id="sidebar">
+    <%= link_to root_path do %>
+      <div class="sidebar-header">
+        <h3>Uri Beer Shop</h3>
+      </div>
+    <% end %>
+      <ul class="list-unstyled components">
+        <li>
+          <%= link_to 'Engenharias', engenharias_path %>
+        </li>
+        <li>
+          <a href="#">Produtos</a>
+        </li>
+        <li>
+          <a href="#">Ingredientes</a>
+        </li>
+        <li>
+          <a href="#">Processos</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <button type="button" id="sidebarCollapse" class="btn collapse-sidebar">
+    <%= fa_icon "bars", class: 'toggle-sidebar-icon' %>
+  </button>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("#sidebarCollapse").on("click", function() {
+      $("#sidebar").toggleClass("active");
+    });
+  });
+</script>

@@ -13,8 +13,22 @@
  */
 
 @import "bootstrap";
+@import "devise";
+@import "home";
+@import "font-awesome";
+@import "sidebar";
+@import "engenharias";
 
-.login-wrapper {
-  margin: auto;
-  width: 40%;
+body {
+  width: 100%;
+  height: 100%;
+
+  font-family: "Montserrat", sans-serif;
+
+  background: #2196f3;
+}
+
+.global-content {
+  display: flex;
+  flex-direction: row;
 }

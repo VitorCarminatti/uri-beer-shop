@@ -1,3 +1,10 @@
-// Place all the styles related to the Engenharias controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.engenharias-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  table {
+    width: 80%;
+  }
+}
