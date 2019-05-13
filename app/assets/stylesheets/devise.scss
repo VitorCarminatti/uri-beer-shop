@@ -10,15 +10,20 @@
   flex: 1;
   align-items: center;
   flex-direction: column;
-  max-width: 700px;
-  width: 300px;
+  max-width: 600px;
+  width: 100%;
   background: #fff;
   border-radius: 10px;
   align-self: center;
 
+  input {
+    margin-top: 2%;
+  }
+
   .remember {
     margin-top: 5%;
     margin-bottom: 5%;
+    text-align: center;
   }
 
   img {
@@ -30,6 +35,10 @@
 .links {
   text-align: center;
   margin-top: 2%;
+
+  a:hover {
+    color: #2196f3;
+  }
 }
 
 h2 {

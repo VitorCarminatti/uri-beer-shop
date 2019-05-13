@@ -12,9 +12,13 @@
   </head>
 
   <body>
-    <div class="global-content">
-      <%= render partial: "shared/sidebar" %>
+    <% if current_usuario %>
+      <div class="global-content">
+        <%= render partial: "shared/sidebar" %>
+        <%= yield %>
+      </div>
+    <% else %>
       <%= yield %>
-    </div>
+    <% end %>
   </body>
 </html>
