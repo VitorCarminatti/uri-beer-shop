@@ -3,29 +3,31 @@
 
   <h1>Engenharias</h1>
 
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Descricao</th>
-        <th>Status</th>
-        <th>Usuario</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @engenharias.each do |engenharia| %>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
         <tr>
-          <td><%= engenharia.descricao %></td>
-          <td><%= engenharia.status %></td>
-          <td><%= engenharia.usuario %></td>
-          <td><%= link_to 'Show', engenharia %></td>
-          <td><%= link_to 'Edit', edit_engenharia_path(engenharia) %></td>
-          <td><%= link_to 'Destroy', engenharia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>Descricao</th>
+          <th>Status</th>
+          <th>Usuario</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @engenharias.each do |engenharia| %>
+          <tr>
+            <td><%= engenharia.descricao %></td>
+            <td><%= engenharia.status %></td>
+            <td><%= engenharia.usuario %></td>
+            <td><%= link_to 'Show', engenharia %></td>
+            <td><%= link_to 'Edit', edit_engenharia_path(engenharia) %></td>
+            <td><%= link_to 'Destroy', engenharia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
   <br>
 
