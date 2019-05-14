@@ -3,4 +3,51 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
+
+  table {
+    width: 80%;
+    margin-top: 5%;
+
+    thead {
+      background: #df9933;
+      color: white;
+    }
+  }
+}
+
+.content-engenharia-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  strong,
+  p {
+    color: black;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+.button-create {
+  margin-top: 3%;
+}
+
+.action-button {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  justify-content: space-evenly;
+}
+
+.delete-icon {
+  font-size: 20px;
+  color: white;
+  align-self: center;
+}
+
+.title {
+  color: #b77e28;
 }

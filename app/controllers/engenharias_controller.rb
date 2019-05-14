@@ -17,6 +17,7 @@ class EngenhariasController < ApplicationController
 
   def create
     @engenharia = Engenharia.new(engenharia_params)
+    @engenharia.usuario = current_usuario
 
     respond_to do |format|
       if @engenharia.save

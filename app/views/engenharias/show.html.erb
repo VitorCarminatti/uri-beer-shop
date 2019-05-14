@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="content-engenharia-form">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @engenharia.descricao %>
-</p>
+  <p>
+    <strong>Descricao:</strong>
+    <%= @engenharia.descricao %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @engenharia.status %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= @engenharia.status %>
+  </p>
 
-<p>
-  <strong>Usuario:</strong>
-  <%= @engenharia.usuario %>
-</p>
+  <p>
+    <strong>Usuario:</strong>
+    <%= @engenharia.usuario.nome %>
+  </p>
 
-<%= link_to 'Edit', edit_engenharia_path(@engenharia) %> |
-<%= link_to 'Back', engenharias_path %>
+  <div class="action-button">
+    <%= link_to 'Editar', edit_engenharia_path(@engenharia), class: 'btn custom-primary-btn' %>
+    <%= link_to 'Voltar', engenharias_path, class: 'btn custom-primary-btn' %>
+  </div>
+</div>
