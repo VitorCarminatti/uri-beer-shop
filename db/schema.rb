@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_223003) do
+ActiveRecord::Schema.define(version: 2019_05_15_230242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,21 @@ ActiveRecord::Schema.define(version: 2019_05_13_223003) do
     t.bigint "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "produto_id"
+    t.index ["produto_id"], name: "index_engenharias_on_produto_id"
     t.index ["usuario_id"], name: "index_engenharias_on_usuario_id"
+  end
+
+  create_table "produtos", force: :cascade do |t|
+    t.string "descricao"
+    t.decimal "quantidade"
+    t.decimal "preco"
+    t.boolean "produzido"
+    t.string "imagem"
+    t.bigint "engenharia_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["engenharia_id"], name: "index_produtos_on_engenharia_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -37,5 +51,7 @@ ActiveRecord::Schema.define(version: 2019_05_13_223003) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "engenharias", "produtos"
   add_foreign_key "engenharias", "usuarios"
+  add_foreign_key "produtos", "engenharias"
 end

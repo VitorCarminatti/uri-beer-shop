@@ -1,22 +1,21 @@
 <div class="content">
   <div class="login-wrapper">
-    <h2>Criar conta</h2>
+    <h2 style="color: white;">Criar conta</h2>
 
     <div class="form-group">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
-          <%= f.label :email, 'E-mail' %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          <%= f.input :nome, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Nome', label: false %>
 
-          <%= f.label :password, 'Senha' %>
-          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+          <%= f.input :email, type: 'email', autocomplete: "email", class: 'form-control', placeholder: 'Email', label: false %>
 
-          <%= f.label :password_confirmation, 'Confirme sua senha' %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+          <%= f.input :password, type: 'password', autocomplete: "new-password", class: 'form-control', placeholder: 'Senha', label: false %>
+
+          <%= f.input :password_confirmation, type: 'password', autocomplete: "new-password", class: 'form-control', placeholder: 'Confirme sua senha', label: false %>
 
         <div class="criar-conta">
-          <%= f.submit "Criar", class: 'btn custom-primary-btn btn-block' %>
+          <%= f.submit "Criar", class: 'btn btn-login btn-block' %>
         </div>
       <% end %>
     </div>

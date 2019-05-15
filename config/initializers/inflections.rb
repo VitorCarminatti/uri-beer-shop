@@ -17,4 +17,5 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular "engenharia","engenharias"
+  inflect.irregular "engenharia_produzido","engenharias_produzidos"
 end
