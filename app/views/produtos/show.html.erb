@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="content-engenharia-form">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @produto.descricao %>
-</p>
+  <p>
+    <strong>Descricao:</strong>
+    <%= @produto.descricao %>
+  </p>
 
-<p>
-  <strong>Quantidade:</strong>
-  <%= @produto.quantidade %>
-</p>
+  <p>
+    <strong>Quantidade:</strong>
+    <%= @produto.quantidade %>
+  </p>
 
-<p>
-  <strong>Preco:</strong>
-  <%= @produto.preco %>
-</p>
+  <p>
+    <strong>Preco:</strong>
+    <%= @produto.preco %>
+  </p>
 
-<p>
-  <strong>Produzido:</strong>
-  <%= @produto.produzido %>
-</p>
+  <p>
+    <strong>Produzido:</strong>
+    <%= @produto.produzido %>
+  </p>
 
-<p>
-  <strong>Imagem:</strong>
-  <%= @produto.imagem %>
-</p>
+  <p>
+    <strong>Imagem:</strong>
+    <%= @produto.imagem %>
+  </p>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+  <div class="action-button">
+    <%= link_to 'Editar', edit_produto_path(@produto), class: 'btn custom-primary-btn' %>
+    <%= link_to 'Voltar', produtos_path, class: 'btn custom-primary-btn' %>
+  </div>
+</div>

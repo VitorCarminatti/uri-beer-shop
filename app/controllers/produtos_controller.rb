@@ -28,7 +28,7 @@ class ProdutosController < ApplicationController
 
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto was successfully created.' }
+        format.html { redirect_to @produto, notice: "Produto was successfully created." }
         format.json { render :show, status: :created, location: @produto }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to @produto, notice: 'Produto was successfully updated.' }
+        format.html { redirect_to @produto, notice: "Produto was successfully updated." }
         format.json { render :show, status: :ok, location: @produto }
       else
         format.html { render :edit }
@@ -56,19 +56,20 @@ class ProdutosController < ApplicationController
   def destroy
     @produto.destroy
     respond_to do |format|
-      format.html { redirect_to produtos_url, notice: 'Produto was successfully destroyed.' }
+      format.html { redirect_to produtos_url, notice: "Produto was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_produto
-      @produto = Produto.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def produto_params
-      params.require(:produto).permit(:descricao, :quantidade, :preco, :produzido, :imagem)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_produto
+    @produto = Produto.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def produto_params
+    params.require(:produto).permit(:descricao, :nome, :quantidade, :preco, :produzido, :imagem)
+  end
 end

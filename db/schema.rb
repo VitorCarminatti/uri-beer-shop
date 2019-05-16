@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_230242) do
 
   create_table "produtos", force: :cascade do |t|
     t.string "descricao"
+    t.string "nome"
     t.decimal "quantidade"
     t.decimal "preco"
     t.boolean "produzido"
