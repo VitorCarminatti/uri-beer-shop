@@ -1,25 +1,28 @@
 <div class="content-wrapper">
   <div class="wrapper">
     <nav id="sidebar">
-    <%= link_to root_path do %>
-      <div class="sidebar-header">
-        <h3>Uri Beer Shop</h3>
+      <%= link_to root_path do %>
+        <div class="sidebar-header">
+          <h3>Uri Beer Shop</h3>
+        </div>
+      <% end %>
+      <div class="menu-list">
+        <ul class="list-unstyled components">
+          <li>
+            <%= link_to 'Engenharias', engenharias_path %>
+          </li>
+          <li>
+            <%= link_to 'Produtos', produtos_path %>
+          </li>
+          <li>
+            <%= link_to 'Processos', processos_path %>
+          </li>
+          <li>
+            <%= link_to 'Ingredientes', ingredientes_path %>
+          </li>
+        </ul>
+        <%= link_to 'Sair', destroy_usuario_session_path, method: :delete, class: 'link-logout' %>
       </div>
-    <% end %>
-      <ul class="list-unstyled components">
-        <li>
-          <%= link_to 'Engenharias', engenharias_path %>
-        </li>
-        <li>
-          <%= link_to 'Produtos', produtos_path %>
-        </li>
-        <li>
-          <a href="#">Ingredientes</a>
-        </li>
-        <li>
-          <a href="#">Processos</a>
-        </li>
-      </ul>
     </nav>
   </div>
 

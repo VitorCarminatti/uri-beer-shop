@@ -98,3 +98,13 @@ a:focus {
     background: #8f611d;
   }
 }
+
+.menu-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.link-logout {
+  margin-left: 12px;
+}

@@ -1,3 +1,3 @@
 class Produto < ApplicationRecord
-  has_one :engenharia
+  has_many :engenharias
 end

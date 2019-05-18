@@ -1,0 +1,17 @@
+<div class="form-group">
+  <%= simple_form_for @processo do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :nome, class: 'form-control'%>
+      <%= f.input :descricao, class: 'form-control'%>
+      <%= f.association :engenharia, class: 'form-control'%>
+      <%= f.input :status, class: 'form-control'%>
+    </div>
+
+    <div class="actions button-create">
+      <%= f.submit "Salvar", class: 'btn custom-primary-btn btn-block' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<div class="processos-content">
+  <p id="notice"><%= notice %></p>
+
+  <h1 class="title">Processos</h1>
+
+  <table class="table table-hover">
+    <thead class="header-table">
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Engenharia</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @processos.each do |processo| %>
+        <tr>
+          <td><%= processo.nome %></td>
+          <td><%= processo.descricao %></td>
+          <td><%= processo.engenharia.descricao %></td>
+          <td><%= processo.status %></td>
+          <td><%= link_to 'Visualizar', processo %></td>
+          <td><%= link_to 'Editar', edit_processo_path(processo) %></td>
+          <td><%= link_to 'Excluir', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Novo processo', new_processo_path, class: 'btn custom-primary-btn' %>
+</div>

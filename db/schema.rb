@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_230242) do
+ActiveRecord::Schema.define(version: 2019_05_18_011025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,34 @@ ActiveRecord::Schema.define(version: 2019_05_15_230242) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "produto_id"
+    t.bigint "ingrediente_id"
+    t.index ["ingrediente_id"], name: "index_engenharias_on_ingrediente_id"
     t.index ["produto_id"], name: "index_engenharias_on_produto_id"
     t.index ["usuario_id"], name: "index_engenharias_on_usuario_id"
+  end
+
+  create_table "ingredientes", force: :cascade do |t|
+    t.string "nome"
+    t.string "descricao"
+    t.boolean "produzido"
+    t.decimal "quantidade"
+    t.decimal "quantidade_consumo"
+    t.bigint "processo_id"
+    t.bigint "engenharia_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["engenharia_id"], name: "index_ingredientes_on_engenharia_id"
+    t.index ["processo_id"], name: "index_ingredientes_on_processo_id"
+  end
+
+  create_table "processos", force: :cascade do |t|
+    t.string "nome"
+    t.string "descricao"
+    t.bigint "engenharia_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["engenharia_id"], name: "index_processos_on_engenharia_id"
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -52,7 +78,11 @@ ActiveRecord::Schema.define(version: 2019_05_15_230242) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "engenharias", "ingredientes"
   add_foreign_key "engenharias", "produtos"
   add_foreign_key "engenharias", "usuarios"
+  add_foreign_key "ingredientes", "engenharias"
+  add_foreign_key "ingredientes", "processos"
+  add_foreign_key "processos", "engenharias"
   add_foreign_key "produtos", "engenharias"
 end
