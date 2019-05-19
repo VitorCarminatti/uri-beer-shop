@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_011025) do
 
   create_table "engenharias", force: :cascade do |t|
     t.string "descricao"
-    t.string "status"
+    t.integer "status", default: 0
     t.bigint "usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
