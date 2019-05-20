@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        engenharia:
+          attributes:
+            descricao:
+              blank: não pode ficar em branco
+    models:
+      engenharia:
+        one: Engenharia
+        other: Engenharias
+    attributes:
+      engenharia:
+        descricao: Descrição
+        statuses:
+          em_aberto: Em aberto
+          finalizado: Finalizado
+      processo:
+        descricao: Descrição
+      ingrediente:
+        descricao: Descrição

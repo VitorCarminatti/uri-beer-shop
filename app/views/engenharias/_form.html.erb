@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <%= form.label :status %>
-      <%= form.select :status, Engenharia.statuses.keys.to_a, {}, class: 'form-control' %>
+      <%= form.select :status, options_for_select, {}, class: 'form-control' %>
     </div>
 
     <div class="actions button-create">

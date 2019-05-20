@@ -59,3 +59,4 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'simple_form'
 gem "font-awesome-rails"
+gem "i18n"
