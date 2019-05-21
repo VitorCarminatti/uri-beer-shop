@@ -28,7 +28,7 @@ class ProcessosController < ApplicationController
 
     respond_to do |format|
       if @processo.save
-        format.html { redirect_to @processo, notice: 'Processo was successfully created.' }
+        format.html { redirect_to @processo, notice: "Processo criado com sucesso." }
         format.json { render :show, status: :created, location: @processo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProcessosController < ApplicationController
   def update
     respond_to do |format|
       if @processo.update(processo_params)
-        format.html { redirect_to @processo, notice: 'Processo was successfully updated.' }
+        format.html { redirect_to @processo, notice: "Processo atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @processo }
       else
         format.html { render :edit }
@@ -56,19 +56,20 @@ class ProcessosController < ApplicationController
   def destroy
     @processo.destroy
     respond_to do |format|
-      format.html { redirect_to processos_url, notice: 'Processo was successfully destroyed.' }
+      format.html { redirect_to processos_url, notice: "Processo excluido com sucesso." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_processo
-      @processo = Processo.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def processo_params
-      params.require(:processo).permit(:nome, :descricao, :engenharia_id, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_processo
+    @processo = Processo.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def processo_params
+    params.require(:processo).permit(:nome, :descricao, :engenharia_id, :status)
+  end
 end

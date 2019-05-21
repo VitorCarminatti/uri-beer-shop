@@ -1,5 +1,9 @@
 <div class="ingredientes-content">
-  <p id="notice"><%= notice %></p>
+  <% if notice %>
+    <div class="alert alert-primary">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
 
   <h1 class="title">Ingredientes</h1>
 
@@ -7,7 +11,7 @@
     <thead class="header-table">
       <tr>
         <th>Nome</th>
-        <th>Descricao</th>
+        <th>Descrição</th>
         <th>Produzido</th>
         <th>Engenharias</th>
         <th>Quantidade</th>

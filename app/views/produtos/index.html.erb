@@ -1,5 +1,9 @@
 <div class="produtos-content">
-  <p id="notice"><%= notice %></p>
+  <% if notice %>
+    <div class="alert alert-primary">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
 
   <h1 class="title">Produtos</h1>
 
@@ -7,11 +11,17 @@
     <% @produtos.each do |produto| %>
       <%= link_to produto do %>
         <div class="card custom-card" style="width: 18rem;">
-          <%= image_tag('chopp.jpg', class: 'card-img-top') %>
+          <% if produto.imagem.attached? %>
+            <%= image_tag(url_for(produto.imagem), class: 'card-img-top img-top') %>
+          <% else %>
+            <%= image_tag('imagem_nao_cadastrada.png', class: 'card-img-top img-top') %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= produto.nome %></h5>
             <p class="card-text"><%= produto.descricao %><p>
-            <%= link_to 'Editar', edit_produto_path(produto) %>
+            <p class="preco-text">R$: <%= number_with_precision(produto.preco, precision: 2) %><p>
+
+            <%= link_to 'Editar', edit_produto_path(produto), class: 'btn btn-block custom-primary-btn ' %>
           </div>
         </div>
       <% end %>

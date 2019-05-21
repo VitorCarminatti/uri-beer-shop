@@ -21,7 +21,7 @@ class EngenhariasController < ApplicationController
 
     respond_to do |format|
       if @engenharia.save
-        format.html { redirect_to @engenharia, notice: 'Engenharia was successfully created.' }
+        format.html { redirect_to @engenharia, notice: "Engenharia criada com sucesso." }
         format.json { render :show, status: :created, location: @engenharia }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class EngenhariasController < ApplicationController
   def update
     respond_to do |format|
       if @engenharia.update(engenharia_params)
-        format.html { redirect_to @engenharia, notice: 'Engenharia was successfully updated.' }
+        format.html { redirect_to @engenharia, notice: "Engenharia atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @engenharia }
       else
         format.html { render :edit }
@@ -45,17 +45,18 @@ class EngenhariasController < ApplicationController
   def destroy
     @engenharia.destroy
     respond_to do |format|
-      format.html { redirect_to engenharias_url, notice: 'Engenharia was successfully destroyed.' }
+      format.html { redirect_to engenharias_url, notice: "Engenharia excluída com sucesso." }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_engenharia
-      @engenharia = Engenharia.find(params[:id])
-    end
 
-    def engenharia_params
-      params.require(:engenharia).permit(:descricao, :status, :usuario_id)
-    end
+  def set_engenharia
+    @engenharia = Engenharia.find(params[:id])
+  end
+
+  def engenharia_params
+    params.require(:engenharia).permit(:descricao, :status, :usuario_id)
+  end
 end

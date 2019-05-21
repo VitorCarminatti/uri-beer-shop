@@ -1,6 +1,10 @@
 <div class="content-engenharia-form">
-  <p id="notice"><%= notice %></p>
-
+  <% if notice %>
+    <div class="alert alert-primary">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+  
   <p>
     <strong>Descricao:</strong>
     <%= @produto.descricao %>
@@ -22,8 +26,11 @@
   </p>
 
   <p>
-    <strong>Imagem:</strong>
-    <%= @produto.imagem %>
+    <% if @produto.imagem.attached? %>
+      <%= image_tag(url_for(@produto.imagem), class: 'produto-image') %>
+    <% else %>
+      <%= image_tag('imagem_nao_cadastrada.png', class: 'produto-image') %>
+    <% end %>
   </p>
 
   <div class="action-button">

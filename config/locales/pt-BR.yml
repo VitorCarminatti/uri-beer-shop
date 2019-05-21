@@ -1,10 +1,27 @@
 pt-BR:
+  errors:
+    messages:
+      not_saved: Ocorreram erros, por favor verifique
   activerecord:
     errors:
       models:
+        usuario:
+          attributes:
+            email:
+              not_found: não encontrado
         engenharia:
           attributes:
             descricao:
+              blank: não pode ficar em branco
+        produto:
+          attributes:
+            descricao:
+              blank: não pode ficar em branco
+            nome:
+              blank: não pode ficar em branco
+            quantidade:
+              blank: não pode ficar em branco
+            preco:
               blank: não pode ficar em branco
     models:
       engenharia:

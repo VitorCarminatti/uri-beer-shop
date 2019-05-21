@@ -1,6 +1,9 @@
 <div class="engenharias-content">
-  <p id="notice"><%= notice %></p>
-
+  <% if notice %>
+    <div class="alert alert-primary">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
   <h1 class="title">Engenharias</h1>
 
   <table class="table table-hover">
