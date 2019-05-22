@@ -13,8 +13,8 @@
         <th>Nome</th>
         <th>Descrição</th>
         <th>Produzido</th>
-        <th>Engenharias</th>
         <th>Quantidade</th>
+        <th>Processo</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -25,11 +25,11 @@
           <td><%= ingrediente.nome %></td>
           <td><%= ingrediente.descricao %></td>
           <td><%= ingrediente.produzido %></td>
-          <td><%= ingrediente.engenharias %></td>
           <td><%= ingrediente.quantidade %></td>
-          <td><%= link_to 'Show', ingrediente %></td>
-          <td><%= link_to 'Edit', edit_ingrediente_path(ingrediente) %></td>
-          <td><%= link_to 'Destroy', ingrediente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= ingrediente.processo.nome %></td>
+          <td><%= link_to 'Visualizar', ingrediente %></td>
+          <td><%= link_to 'Editar', edit_ingrediente_path(ingrediente) %></td>
+          <td><%= link_to 'Excluir', ingrediente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

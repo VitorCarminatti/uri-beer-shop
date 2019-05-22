@@ -4,7 +4,7 @@ class CreateProcessos < ActiveRecord::Migration[5.2]
       t.string :nome
       t.string :descricao
       t.references :engenharia, foreign_key: true
-      t.string :status
+      t.integer :status, default: 0
 
       t.timestamps
     end

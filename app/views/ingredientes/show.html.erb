@@ -1,33 +1,36 @@
-<% if notice %>
-  <div class="alert alert-primary">
-    <p id="notice"><%= notice %></p>
+<div class="content-ingrediente-form">
+  <% if notice %>
+    <div class="alert alert-primary">
+      <p id="notice"><%= notice %></p>
+    </div>
+  <% end %>
+
+  <p>
+    <strong>Nome:</strong>
+    <%= @ingrediente.nome %>
+  </p>
+
+  <p>
+    <strong>Descricao:</strong>
+    <%= @ingrediente.descricao %>
+  </p>
+
+  <p>
+    <strong>Produzido:</strong>
+    <%= @ingrediente.produzido %>
+  </p>
+
+  <p>
+    <strong>Processo:</strong>
+    <%= @ingrediente.processo.nome %>
+  </p>
+
+  <p>
+    <strong>Quantidade:</strong>
+    <%= @ingrediente.quantidade %>
+  </p>
+  <div class="actions-button">
+    <%= link_to 'Edit', edit_ingrediente_path(@ingrediente), class: 'btn custom-primary-btn' %>
+    <%= link_to 'Back', ingredientes_path, class: 'btn custom-primary-btn'%>
   </div>
-<% end %>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @ingrediente.nome %>
-</p>
-
-<p>
-  <strong>Descricao:</strong>
-  <%= @ingrediente.descricao %>
-</p>
-
-<p>
-  <strong>Produzido:</strong>
-  <%= @ingrediente.produzido %>
-</p>
-
-<p>
-  <strong>Engenharias:</strong>
-  <%= @ingrediente.engenharias %>
-</p>
-
-<p>
-  <strong>Quantidade:</strong>
-  <%= @ingrediente.quantidade %>
-</p>
-
-<%= link_to 'Edit', edit_ingrediente_path(@ingrediente) %> |
-<%= link_to 'Back', ingredientes_path %>
+</div>

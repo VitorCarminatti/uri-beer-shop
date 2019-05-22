@@ -7,7 +7,7 @@
       <%= f.input :nome, class: 'form-control' %>
       <%= f.input :descricao, class: 'form-control' %>
       <%= f.input :quantidade, class: 'form-control' %>
-      <%= f.association :processo, class: 'form-control' %>
+      <%= f.association :processo, label_method: :nome, value_method: :id, class: 'form-control' %>
       <%= f.input :produzido, class: 'form-control' %>
     </div>
 

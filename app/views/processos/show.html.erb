@@ -1,26 +1,48 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
+<div class="processos-content">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @processo.nome %>
-</p>
+  <p>
+    <strong>Nome:</strong>
+    <%= @processo.nome %>
+  </p>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @processo.descricao %>
-</p>
+  <p>
+    <strong>Descricao:</strong>
+    <%= @processo.descricao %>
+  </p>
 
-<p>
-  <strong>Engenharia:</strong>
-  <%= @processo.engenharia %>
-</p>
+  <p>
+    <strong>Engenharia:</strong>
+    <%= @processo.engenharia.descricao %>
+  </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @processo.status %>
-</p>
+  <p>
+    <strong>Status:</strong>
+    <%= t @processo.status %>
+  </p>
 
-<%= link_to 'Edit', edit_processo_path(@processo) %> |
-<%= link_to 'Back', processos_path %>
+  <table class="table table-hover">
+    <thead class="header-table">
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @processo.ingredientes.each do |ingrediente| %>
+        <tr>
+          <td><%= ingrediente.nome %></td>
+          <td><%= ingrediente.quantidade %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="action-button">
+    <%= link_to 'Editar', edit_processo_path(@processo), class: 'btn custom-primary-btn' %>
+    <%= link_to 'Voltar', processos_path, class: 'btn custom-primary-btn' %>
+  </div>
+</div>

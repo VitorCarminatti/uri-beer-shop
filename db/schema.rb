@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_223022) do
     t.string "nome"
     t.string "descricao"
     t.bigint "engenharia_id"
-    t.string "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["engenharia_id"], name: "index_processos_on_engenharia_id"

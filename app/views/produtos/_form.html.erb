@@ -8,7 +8,11 @@
       <%= f.input :descricao, label: 'Descrição', class: 'form-control' %>
       <%= f.input :quantidade, class: 'form-control' %>
       <%= f.input :preco, label: 'Preço', class: 'form-control' %>
-      <%= f.input :produzido, class: 'form-control' %>
+      <%= f.input :produzido, class: 'form-control', input_html: {id: 'check-produzido'} %>
+      <div class="form-group" id="div-engenharias-select">
+        <%= f.label :engenharia_id %>
+        <%= f.select :engenharia_id, Engenharia.all.collect { |e| [e.descricao, e.id] }, {}, class: 'form-control' %>
+      </div>
       <%= f.input :imagem, as: :file, class: 'form-control-file' %>
     </div>
 
@@ -17,3 +21,13 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  $("#check-produzido").change(function() {
+    if(this.checked){
+      $("#div-engenharias-select").show()
+    } else {
+      $('#div-engenharias-select').hide()
+    }
+  });
+</script>
