@@ -1,5 +1,5 @@
 class Produto < ApplicationRecord
-  has_many :engenharias
+  has_one :engenharia
   has_one_attached :imagem
 
   validates :imagem, presence: true

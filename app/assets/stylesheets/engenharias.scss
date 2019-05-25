@@ -6,15 +6,22 @@
 
   table {
     width: 80%;
-    margin-top: 5%;
 
     thead {
       background: #df9933;
       color: white;
     }
   }
-}
 
+  strong,
+  p {
+    color: black;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
 .content-engenharia-form {
   display: flex;
   flex-direction: column;
@@ -44,4 +51,9 @@
 
 .title {
   color: #b77e28;
+}
+
+.engenharia_processo_ids {
+  display: flex;
+  flex-direction: column;
 }

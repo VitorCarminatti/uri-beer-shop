@@ -6,12 +6,20 @@
 
   table {
     width: 80%;
-    margin-top: 5%;
 
     thead {
       background: #df9933;
       color: white;
     }
+  }
+
+  strong,
+  p {
+    color: black;
+  }
+
+  strong {
+    font-weight: bold;
   }
 }
 

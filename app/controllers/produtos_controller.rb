@@ -15,7 +15,6 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
-    @produto.engenharias.build
   end
 
   # GET /produtos/1/edit
@@ -26,7 +25,7 @@ class ProdutosController < ApplicationController
   # POST /produtos.json
   def create
     @produto = Produto.new(produto_params)
-
+debugger
     respond_to do |format|
       if @produto.save
         format.html { redirect_to @produto, notice: "Produto criado com sucesso." }

@@ -1,4 +1,4 @@
-<div class="content-ingrediente-form">
+<div class="ingredientes-content">
   <% if notice %>
     <div class="alert alert-primary">
       <p id="notice"><%= notice %></p>
@@ -16,19 +16,36 @@
   </p>
 
   <p>
-    <strong>Produzido:</strong>
-    <%= @ingrediente.produzido %>
-  </p>
-
-  <p>
-    <strong>Processo:</strong>
-    <%= @ingrediente.processo.nome %>
-  </p>
-
-  <p>
     <strong>Quantidade:</strong>
     <%= @ingrediente.quantidade %>
   </p>
+
+  <p>
+    <strong>Quantidade consumo:</strong>
+    <%= @ingrediente.quantidade_consumo %>
+  </p>
+
+  <% if @ingrediente.processos.present? %>
+    <strong>Processos:</strong>
+    <table class="table table-hover">
+      <thead class="header-table">
+        <tr>
+          <th>Nome</th>
+          <th>Descricao</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ingrediente.processos.each do |processo| %>
+          <tr>
+            <td><%= processo.nome %></td>
+            <td><%= processo.descricao %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
   <div class="actions-button">
     <%= link_to 'Edit', edit_ingrediente_path(@ingrediente), class: 'btn custom-primary-btn' %>
     <%= link_to 'Back', ingredientes_path, class: 'btn custom-primary-btn'%>

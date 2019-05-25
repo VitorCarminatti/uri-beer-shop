@@ -1,10 +1,10 @@
-<div class="content-engenharia-form">
+<div class="engenharias-content">
   <% if notice %>
     <div class="alert alert-primary">
       <p id="notice"><%= notice %></p>
     </div>
   <% end %>
-  
+
   <p>
     <strong>Descrição:</strong>
     <%= @engenharia.descricao %>
@@ -14,6 +14,27 @@
     <strong>Usuário:</strong>
     <%= @engenharia.usuario.nome %>
   </p>
+
+  <strong>Processos:</strong>
+  <% if @engenharia.processos %>
+    <table class="table table-hover">
+      <thead class="header-table">
+        <tr>
+          <th>Nome</th>
+          <th>Descricao</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @engenharia.processos.each do |processo| %>
+          <tr>
+            <td><%= processo.nome %></td>
+            <td><%= processo.descricao %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 
   <div class="action-button">
     <%= link_to 'Editar', edit_engenharia_path(@engenharia), class: 'btn custom-primary-btn' %>

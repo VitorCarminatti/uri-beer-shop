@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= simple_form_for @engenharia do |form| %>
+  <%= simple_form_for @engenharia do |f| %>
     <% if engenharia.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(engenharia.errors.count, "error") %> prohibited this engenharia from being saved:</h2>
@@ -13,12 +13,22 @@
     <% end %>
 
     <div class="field">
-      <%= form.label :descricao %>
-      <%= form.text_field :descricao, class: 'form-control' %>
+      <%= f.label :descricao %>
+      <%= f.text_field :descricao, class: 'form-control' %>
     </div>
 
+    <%= f.input :processo_ids, collection: processos_options_for_select, include_hidden: false, input_html: {multiple: true, id: 'select2'} %>
+
     <div class="actions button-create">
-      <%= form.submit "Salvar", class: 'btn custom-primary-btn btn-block' %>
+      <%= f.submit "Salvar", class: 'btn custom-primary-btn btn-block' %>
     </div>
   <% end %>
 </div>
+
+<script>
+  $("#dropdown").select2({
+    theme: "bootstrap"
+  });
+
+  $("#select2").select2();
+</script>

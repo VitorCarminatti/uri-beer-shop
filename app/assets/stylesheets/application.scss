@@ -21,6 +21,8 @@
 @import "produtos";
 @import "processos";
 @import "ingredientes";
+@import "select2";
+@import "select2-bootstrap";
 
 body {
   width: 100%;
@@ -54,4 +56,9 @@ input {
 
 .alert {
   margin-top: 3%;
+}
+
+.select2-style {
+  display: flex;
+  flex-direction: column;
 }

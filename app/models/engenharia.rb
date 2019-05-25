@@ -2,7 +2,9 @@ class Engenharia < ApplicationRecord
   belongs_to :usuario
   belongs_to :produto, optional: true
   belongs_to :ingrediente, optional: true
-  has_many :processos
+
+  has_many :processo_engenharias
+  has_many :processos, through: :processo_engenharias, dependent: :destroy
 
   validates :descricao, presence: true
 

@@ -9,13 +9,8 @@
   </p>
 
   <p>
-    <strong>Descricao:</strong>
+    <strong>Descrição:</strong>
     <%= @processo.descricao %>
-  </p>
-
-  <p>
-    <strong>Engenharia:</strong>
-    <%= @processo.engenharia.descricao %>
   </p>
 
   <p>
@@ -23,23 +18,45 @@
     <%= t @processo.status %>
   </p>
 
-  <table class="table table-hover">
-    <thead class="header-table">
-      <tr>
-        <th>Nome</th>
-        <th>Quantidade</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @processo.ingredientes.each do |ingrediente| %>
+  <% if @processo.engenharias.present? %>
+    <strong>Engenharias:</strong>
+    <table class="table table-hover">
+      <thead class="header-table">
         <tr>
-          <td><%= ingrediente.nome %></td>
-          <td><%= ingrediente.quantidade %></td>
+          <th>Descrição</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @processo.engenharias.each do |engenharia| %>
+          <tr>
+            <td><%= engenharia.descricao %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if @processo.ingredientes.present? %>
+    <strong>Ingredientes:</strong>
+    <table class="table table-hover">
+      <thead class="header-table">
+        <tr>
+          <th>Nome</th>
+          <th>Quantidade</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @processo.ingredientes.each do |ingrediente| %>
+          <tr>
+            <td><%= ingrediente.nome %></td>
+            <td><%= ingrediente.quantidade %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 
   <div class="action-button">
     <%= link_to 'Editar', edit_processo_path(@processo), class: 'btn custom-primary-btn' %>

@@ -37,10 +37,12 @@ pt-BR:
         statuses:
           em_aberto: Em aberto
           finalizado: Finalizado
+        processo_ids: Processos
       processo:
         descricao: Descrição
         statuses:
           em_aberto: Em aberto
           finalizado: Finalizado
+        ingrediente_ids: Ingredientes
       ingrediente:
         descricao: Descrição

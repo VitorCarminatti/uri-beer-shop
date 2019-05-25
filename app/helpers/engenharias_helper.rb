@@ -1,5 +1,6 @@
 module EngenhariasHelper
-  def options_for_select
-    Engenharia.statuses.keys.collect { |status| [t(status, scope: "activerecord.attributes.engenharia.statuses"), status] }
+  def processos_options_for_select
+    Processo.where(engenharias: nil).collect{ |p| [p.nome, p.id] } if params[:action] == 'new'
+    Processo.all.collect{ |p| [p.nome, p.id] } if params[:action] == 'edit'
   end
 end

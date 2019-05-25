@@ -8,11 +8,8 @@
       <%= f.input :descricao, label: 'Descrição', class: 'form-control' %>
       <%= f.input :quantidade, class: 'form-control' %>
       <%= f.input :preco, label: 'Preço', class: 'form-control' %>
-      <%= f.input :produzido, class: 'form-control', input_html: {id: 'check-produzido'} %>
-      <div class="form-group" id="div-engenharias-select">
-        <%= f.label :engenharia_id %>
-        <%= f.select :engenharia_id, Engenharia.all.collect { |e| [e.descricao, e.id] }, {}, class: 'form-control' %>
-      </div>
+      <%= f.input :produzido, class: 'form-control', input_html: { id: 'check-produzido' } %>
+      <%= f.input :engenharia_id, collection: engenharias_options_for_select, include_hidden: false, input_html: { id: 'select2' } %>
       <%= f.input :imagem, as: :file, class: 'form-control-file' %>
     </div>
 
@@ -25,9 +22,16 @@
 <script>
   $("#check-produzido").change(function() {
     if(this.checked){
-      $("#div-engenharias-select").show()
+      $(".produto_engenharia_id").show()
     } else {
-      $('#div-engenharias-select').hide()
+      $('.produto_engenharia_id').hide()
     }
   });
+
+  $("#dropdown").select2({
+    theme: "bootstrap"
+  });
+
+  $("#select2").select2();
+
 </script>

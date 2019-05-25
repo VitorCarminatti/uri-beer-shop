@@ -25,7 +25,6 @@ class IngredientesController < ApplicationController
   # POST /ingredientes.json
   def create
     @ingrediente = Ingrediente.new(ingrediente_params)
-
     respond_to do |format|
       if @ingrediente.save
         format.html { redirect_to @ingrediente, notice: "Ingrediente criado com sucesso." }
@@ -70,6 +69,6 @@ class IngredientesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ingrediente_params
-    params.require(:ingrediente).permit(:nome, :descricao, :produzido, :engenharias_id, :processo_id, :quantidade, :quantidade_consumo)
+    params.require(:ingrediente).permit(:nome, :descricao, :produzido, :engenharias_id, :quantidade, :quantidade_consumo, processo_ids: [])
   end
 end

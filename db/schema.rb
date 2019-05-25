@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_223022) do
+ActiveRecord::Schema.define(version: 2019_05_25_142106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 2019_05_20_223022) do
     t.index ["usuario_id"], name: "index_engenharias_on_usuario_id"
   end
 
+  create_table "ingrediente_processos", force: :cascade do |t|
+    t.bigint "ingrediente_id"
+    t.bigint "processo_id"
+    t.index ["ingrediente_id"], name: "index_ingrediente_processos_on_ingrediente_id"
+    t.index ["processo_id"], name: "index_ingrediente_processos_on_processo_id"
+  end
+
   create_table "ingredientes", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
@@ -63,6 +70,13 @@ ActiveRecord::Schema.define(version: 2019_05_20_223022) do
     t.index ["processo_id"], name: "index_ingredientes_on_processo_id"
   end
 
+  create_table "processo_engenharias", force: :cascade do |t|
+    t.bigint "engenharia_id"
+    t.bigint "processo_id"
+    t.index ["engenharia_id"], name: "index_processo_engenharias_on_engenharia_id"
+    t.index ["processo_id"], name: "index_processo_engenharias_on_processo_id"
+  end
+
   create_table "processos", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
@@ -70,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_223022) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "quantidade_produzida"
     t.index ["engenharia_id"], name: "index_processos_on_engenharia_id"
   end
 
@@ -103,8 +118,12 @@ ActiveRecord::Schema.define(version: 2019_05_20_223022) do
   add_foreign_key "engenharias", "ingredientes"
   add_foreign_key "engenharias", "produtos"
   add_foreign_key "engenharias", "usuarios"
+  add_foreign_key "ingrediente_processos", "ingredientes"
+  add_foreign_key "ingrediente_processos", "processos"
   add_foreign_key "ingredientes", "engenharias"
   add_foreign_key "ingredientes", "processos"
+  add_foreign_key "processo_engenharias", "engenharias"
+  add_foreign_key "processo_engenharias", "processos"
   add_foreign_key "processos", "engenharias"
   add_foreign_key "produtos", "engenharias"
 end

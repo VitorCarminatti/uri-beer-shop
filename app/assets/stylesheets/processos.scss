@@ -6,7 +6,6 @@
 
   table {
     width: 80%;
-    margin-top: 5%;
 
     thead {
       background: #df9933;
@@ -53,4 +52,9 @@
 
 .title {
   color: #b77e28;
+}
+
+.processo_ingrediente_ids {
+  display: flex;
+  flex-direction: column;
 }

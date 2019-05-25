@@ -57,6 +57,6 @@ class EngenhariasController < ApplicationController
   end
 
   def engenharia_params
-    params.require(:engenharia).permit(:descricao, :status, :usuario_id)
+    params.require(:engenharia).permit(:descricao, :usuario_id, processo_ids: [])
   end
 end

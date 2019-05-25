@@ -17,4 +17,5 @@
 //= require popper
 //= require bootstrap
 //= require home
+//= require select2
 //= require_tree .

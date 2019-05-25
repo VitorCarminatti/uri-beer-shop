@@ -52,6 +52,7 @@
   min-height: 200px;
 }
 
-#div-engenharias-select {
-  display: none;
+.produto_engenharia_id {
+  display: flex;
+  flex-direction: column;
 }

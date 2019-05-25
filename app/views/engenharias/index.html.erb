@@ -20,7 +20,7 @@
       <% @engenharias.each do |engenharia| %>
         <tr>
           <td><%= engenharia.descricao %></td>
-          <td><%= t engenharia.status %></td>
+          <td><%= t engenharia.processos.last.status %></td>
           <td><%= engenharia.usuario.nome %></td>
           <td><%= link_to 'Visualizar', engenharia %></td>
           <td><%= link_to 'Editar', edit_engenharia_path(engenharia) %></td>
