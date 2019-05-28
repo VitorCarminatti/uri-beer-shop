@@ -24,7 +24,7 @@
           <td><%= processo.descricao %></td>
           <td><%= t processo.status %></td>
           <td><%= link_to 'Visualizar', processo %></td>
-          <td><%= link_to 'Editar', edit_processo_path(processo) %></td>
+          <td><%= link_to 'Editar', edit_processo_path(processo) if processo.status != 'finalizado' %></td>
           <td><%= link_to 'Excluir', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>

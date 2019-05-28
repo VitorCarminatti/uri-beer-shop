@@ -10,7 +10,6 @@ class Usuarios::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    debugger
   end
 
   # DELETE /resource/sign_out

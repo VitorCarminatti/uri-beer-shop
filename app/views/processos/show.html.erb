@@ -1,6 +1,8 @@
 <div class="processos-content">
   <% if notice %>
-    <p id="notice"><%= notice %></p>
+    <div class="alert alert-primary">
+      <p id="notice"><%= notice %></p>
+    </div>
   <% end %>
 
   <p>
@@ -59,7 +61,7 @@
   <% end %>
 
   <div class="action-button">
-    <%= link_to 'Editar', edit_processo_path(@processo), class: 'btn custom-primary-btn' %>
+    <%= link_to 'Editar', edit_processo_path(@processo), class: 'btn custom-primary-btn' if @processo.status != 'finalizado' %>
     <%= link_to 'Voltar', processos_path, class: 'btn custom-primary-btn' %>
   </div>
 </div>

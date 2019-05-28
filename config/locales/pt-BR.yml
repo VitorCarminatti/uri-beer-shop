@@ -46,3 +46,4 @@ pt-BR:
         ingrediente_ids: Ingredientes
       ingrediente:
         descricao: Descrição
+        quantidade_consumo: Quantidade consumida

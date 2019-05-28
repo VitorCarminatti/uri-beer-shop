@@ -61,3 +61,4 @@ gem 'simple_form'
 gem "font-awesome-rails"
 gem "i18n"
 gem "select2-rails"
+gem 'dotenv-rails', groups: [:development, :test]

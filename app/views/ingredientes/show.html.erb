@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    <strong>Descricao:</strong>
+    <strong>Descrição:</strong>
     <%= @ingrediente.descricao %>
   </p>
 
@@ -21,7 +21,7 @@
   </p>
 
   <p>
-    <strong>Quantidade consumo:</strong>
+    <strong>Quantidade Consumida:</strong>
     <%= @ingrediente.quantidade_consumo %>
   </p>
 
@@ -47,7 +47,7 @@
   <% end %>
 
   <div class="actions-button">
-    <%= link_to 'Edit', edit_ingrediente_path(@ingrediente), class: 'btn custom-primary-btn' %>
-    <%= link_to 'Back', ingredientes_path, class: 'btn custom-primary-btn'%>
+    <%= link_to 'Editar', edit_ingrediente_path(@ingrediente), class: 'btn custom-primary-btn' %>
+    <%= link_to 'Voltar', ingredientes_path, class: 'btn custom-primary-btn'%>
   </div>
 </div>
