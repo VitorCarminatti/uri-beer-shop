@@ -62,3 +62,35 @@ input {
   display: flex;
   flex-direction: column;
 }
+
+.table tbody tr > td.success {
+  background: #5ccb99 !important;
+}
+
+.table tbody tr > td.error {
+  background: #ef827a !important;
+}
+
+.table tbody tr > td.warning {
+  background: #aba9c3 !important;
+}
+
+.table tbody tr > td.info {
+  background: #d9edf7 !important;
+}
+
+.table-hover tbody tr:hover > td.success {
+  background: #d0e9c6 !important;
+}
+
+.table-hover tbody tr:hover > td.error {
+  background: #ebcccc !important;
+}
+
+.table-hover tbody tr:hover > td.warning {
+  background: #faf2cc !important;
+}
+
+.table-hover tbody tr:hover > td.info {
+  background: #c4e3f3 !important;
+}

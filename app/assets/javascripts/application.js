@@ -18,4 +18,6 @@
 //= require bootstrap
 //= require home
 //= require select2-full
+//= require chartkick
+//= require Chart.bundle
 //= require_tree .

@@ -1,3 +1,29 @@
 <div class="home-content">
-  <h1>Bem-vindo a dashboard</h1>
+  <h1 class="title text-center">Indicadores</h1>
+  
+  <div class="indicators">
+    <%= link_to engenharias_path do %>
+      <div class="indicator red">
+        <p><%= Engenharia.count %> engenharias finalizadas</p>
+      </div>
+    <% end %>
+    <%= link_to produtos_path do %>
+      <div class="indicator green">
+        <p><%= Produto.count(:quantidade) %> produtos produzidos</p>
+      </div>
+    <% end %>
+    <%= link_to ingredientes_path do %>
+      <div class="indicator blue">
+        <p><%= Ingrediente.count %> ingredientes cadastrados</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="charts">
+    <div class="chart">
+      <%= pie_chart Produto.all.collect{|p| [p.nome, p.quantidade]} %>
+    </div>
+    <div class="chart">
+      <%= pie_chart Ingrediente.all.collect{|p| [p.nome, p.quantidade]} %>
+    </div>
+  </div>
 </div>

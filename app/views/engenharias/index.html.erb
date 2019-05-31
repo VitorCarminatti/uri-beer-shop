@@ -6,7 +6,7 @@
   <% end %>
   <h1 class="title">Engenharias</h1>
 
-  <table class="table table-hover">
+  <table class="table">
     <thead class="header-table">
       <tr>
         <th>Descricao</th>
@@ -22,9 +22,9 @@
           <td><%= engenharia.descricao %></td>
           <td><%= t engenharia.processos.last.status %></td>
           <td><%= engenharia.usuario.nome %></td>
-          <td><%= link_to 'Visualizar', engenharia %></td>
-          <td><%= link_to 'Editar', edit_engenharia_path(engenharia) %></td>
-          <td><%= link_to 'Excluir', engenharia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="success"><%= link_to 'Visualizar', engenharia %></td>
+          <td class="warning"><%= link_to 'Editar', edit_engenharia_path(engenharia) %></td>
+          <td class="error"><%= link_to 'Excluir', engenharia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
