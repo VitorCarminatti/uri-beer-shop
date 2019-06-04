@@ -20,7 +20,7 @@
     <%= t @processo.status %>
   </p>
 
-  <% if @processo.engenharias.present? %>
+  <% if @processo.engenharia.present? %>
     <strong>Engenharias:</strong>
     <table class="table table-hover">
       <thead class="header-table">
@@ -30,11 +30,9 @@
       </thead>
 
       <tbody>
-        <% @processo.engenharias.each do |engenharia| %>
-          <tr>
-            <td><%= engenharia.descricao %></td>
-          </tr>
-        <% end %>
+        <tr>
+          <td><%= @processo.engenharia.descricao %></td>
+        </tr>
       </tbody>
     </table>
   <% end %>

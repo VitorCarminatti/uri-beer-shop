@@ -23,9 +23,9 @@
           <td><%= ingrediente.nome %></td>
           <td><%= ingrediente.descricao %></td>
           <td><%= ingrediente.quantidade %></td>
-          <td><%= link_to 'Visualizar', ingrediente %></td>
-          <td><%= link_to 'Editar', edit_ingrediente_path(ingrediente) %></td>
-          <td><%= link_to 'Excluir', ingrediente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="success"><%= link_to 'Visualizar', ingrediente %></td>
+          <td class="warning"><%= link_to 'Editar', edit_ingrediente_path(ingrediente) %></td>
+          <td class="error"><%= link_to 'Excluir', ingrediente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

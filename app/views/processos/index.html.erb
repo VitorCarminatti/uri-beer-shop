@@ -23,9 +23,11 @@
           <td><%= processo.nome %></td>
           <td><%= processo.descricao %></td>
           <td><%= t processo.status %></td>
-          <td><%= link_to 'Visualizar', processo %></td>
-          <td><%= link_to 'Editar', edit_processo_path(processo) if processo.status != 'finalizado' %></td>
-          <td><%= link_to 'Excluir', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="success"><%= link_to 'Visualizar', processo %></td>
+          <% if processo.status != 'finalizado' %>
+            <td class="warning"><%= link_to 'Editar', edit_processo_path(processo) %></td>
+          <% end %>
+          <td class="error"><%= link_to 'Excluir', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

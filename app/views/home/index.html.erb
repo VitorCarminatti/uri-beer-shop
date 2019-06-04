@@ -4,17 +4,17 @@
   <div class="indicators">
     <%= link_to engenharias_path do %>
       <div class="indicator red">
-        <p><%= Engenharia.count %> engenharias finalizadas</p>
+        <p><%= engenharias_finalizadas %></p>
       </div>
     <% end %>
     <%= link_to produtos_path do %>
       <div class="indicator green">
-        <p><%= Produto.count(:quantidade) %> produtos produzidos</p>
+        <p><%= produtos_produzidos %></p>
       </div>
     <% end %>
     <%= link_to ingredientes_path do %>
       <div class="indicator blue">
-        <p><%= Ingrediente.count %> ingredientes cadastrados</p>
+        <p><%= ingredientes_cadastrados %></p>
       </div>
     <% end %>
   </div>

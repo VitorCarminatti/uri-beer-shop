@@ -25,6 +25,10 @@ class ProcessosController < ApplicationController
   # POST /processos.json
   def create
     @processo = Processo.new(processo_params)
+
+    Engenharia.find(processo_params[:engenharia_id]).processos.update_all(last: false)
+    @processo.last = true
+
     respond_to do |format|
       if @processo.save
         format.html { redirect_to @processo, notice: "Processo criado com sucesso." }
@@ -69,6 +73,6 @@ class ProcessosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def processo_params
-    params.require(:processo).permit(:nome, :descricao, :status, :quantidade_produzida, ingrediente_ids: [])
+    params.require(:processo).permit(:nome, :descricao, :status, :quantidade_produzida, :engenharia_id, ingrediente_ids: [])
   end
 end

@@ -9,6 +9,10 @@ pt-BR:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
+      template:
+        header:
+          one: 1 erro impediu esse(a) %{model} de ser salvo
+          other: "%{count} errors impediram esse(a) %{model} de ser salvo"
       default_message: "Alguns erros foram encontrados, por favor verifique"
     # Labels and hints examples
     # labels:

@@ -2,8 +2,15 @@ pt-BR:
   errors:
     messages:
       not_saved: Ocorreram erros, por favor verifique
+  error_explanation:
+    engenharia:
+      count_message:
+        one: "%{count} erro impediu o salvamento deste %{model}"
+        other: "%{count} erros impediram o salvamento deste %{model}"
   activerecord:
     errors:
+      messages:
+        record_invalid: "A validação falhou: %{errors}"
       models:
         usuario:
           attributes:
@@ -27,6 +34,10 @@ pt-BR:
           attributes:
             processo:
               required: não pode ficar em branco
+        processo:
+          attributes:
+            engenharia:
+              require: não pode ficar em branco
     models:
       engenharia:
         one: Engenharia

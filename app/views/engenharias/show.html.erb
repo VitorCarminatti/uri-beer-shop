@@ -15,8 +15,8 @@
     <%= @engenharia.usuario.nome %>
   </p>
 
-  <strong>Processos:</strong>
-  <% if @engenharia.processos %>
+  <% if @engenharia.processos.present? %>
+    <strong>Processos:</strong>
     <table class="table table-hover">
       <thead class="header-table">
         <tr>

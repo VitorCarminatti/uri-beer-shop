@@ -17,8 +17,6 @@
       <%= f.text_field :descricao, class: 'form-control' %>
     </div>
 
-    <%= f.input :processo_ids, collection: processos_options_for_select, include_hidden: false, input_html: {multiple: true, id: 'select2'} %>
-
     <div class="actions button-create">
       <%= f.submit "Salvar", class: 'btn custom-primary-btn btn-block' %>
     </div>

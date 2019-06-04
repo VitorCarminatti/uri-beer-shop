@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_142106) do
+ActiveRecord::Schema.define(version: 2019_06_04_001600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,13 +70,6 @@ ActiveRecord::Schema.define(version: 2019_05_25_142106) do
     t.index ["processo_id"], name: "index_ingredientes_on_processo_id"
   end
 
-  create_table "processo_engenharias", force: :cascade do |t|
-    t.bigint "engenharia_id"
-    t.bigint "processo_id"
-    t.index ["engenharia_id"], name: "index_processo_engenharias_on_engenharia_id"
-    t.index ["processo_id"], name: "index_processo_engenharias_on_processo_id"
-  end
-
   create_table "processos", force: :cascade do |t|
     t.string "nome"
     t.string "descricao"
@@ -85,6 +78,7 @@ ActiveRecord::Schema.define(version: 2019_05_25_142106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "quantidade_produzida"
+    t.boolean "last"
     t.index ["engenharia_id"], name: "index_processos_on_engenharia_id"
   end
 
@@ -122,8 +116,6 @@ ActiveRecord::Schema.define(version: 2019_05_25_142106) do
   add_foreign_key "ingrediente_processos", "processos"
   add_foreign_key "ingredientes", "engenharias"
   add_foreign_key "ingredientes", "processos"
-  add_foreign_key "processo_engenharias", "engenharias"
-  add_foreign_key "processo_engenharias", "processos"
   add_foreign_key "processos", "engenharias"
   add_foreign_key "produtos", "engenharias"
 end
