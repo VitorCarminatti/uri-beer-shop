@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_001600) do
     t.string "nome"
     t.decimal "quantidade"
     t.decimal "preco"
-    t.boolean "produzido"
+    t.boolean "produzido", default: true
     t.string "imagem"
     t.bigint "engenharia_id"
     t.datetime "created_at", null: false

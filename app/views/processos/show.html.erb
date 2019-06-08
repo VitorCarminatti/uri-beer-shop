@@ -20,22 +20,10 @@
     <%= t @processo.status %>
   </p>
 
-  <% if @processo.engenharia.present? %>
-    <strong>Engenharias:</strong>
-    <table class="table">
-      <thead class="header-table">
-        <tr>
-          <th>Descrição</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td><%= @processo.engenharia.descricao %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+  <p>
+    <strong>Engenharia:</strong>
+    <%= t @processo.engenharia.descricao %>
+  </p>
 
   <% if @processo.ingredientes.present? %>
     <strong>Ingredientes:</strong>
