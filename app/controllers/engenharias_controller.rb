@@ -1,5 +1,5 @@
 class EngenhariasController < ApplicationController
-  before_action :set_engenharia, only: [:show, :edit, :update, :destroy]
+  before_action :set_engenharia, only: [:show, :edit, :update, :destroy, :produzir]
 
   def index
     @engenharias = Engenharia.all
@@ -48,6 +48,20 @@ class EngenhariasController < ApplicationController
       format.html { redirect_to engenharias_url, notice: "Engenharia excluída com sucesso." }
       format.json { head :no_content }
     end
+  end
+
+  def produzir
+    if !@engenharia.processos.present?
+      redirect_to engenharias_path, notice: 'Engenharia não possui processos para serem finalizados'
+    end
+
+    processos = @engenharia.processos
+    processos
+      .where.not(status: :finalizado)
+      .or(processos.where.not(status: :cancelado))
+      .each{|e| e.update(status: :finalizado)}
+
+    redirect_to engenharias_path, notice: 'Engenharia produzida com sucesso'
   end
 
   private

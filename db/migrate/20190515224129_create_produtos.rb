@@ -5,7 +5,7 @@ class CreateProdutos < ActiveRecord::Migration[5.2]
       t.string :nome
       t.decimal :quantidade
       t.decimal :preco
-      t.boolean :produzido
+      t.boolean :produzido, default: true
       t.string :imagem
       t.references :engenharia, foreign_key: true
 

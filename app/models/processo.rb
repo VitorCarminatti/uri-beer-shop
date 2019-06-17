@@ -3,13 +3,14 @@ class Processo < ApplicationRecord
   has_many :ingredientes, through: :ingrediente_processos
   belongs_to :engenharia
 
-  enum status: { em_andamento: 0, finalizado: 1 }
+  enum status: { em_andamento: 0, finalizado: 1, cancelado: 2 }
 
   after_save :atualiza_quantidades
 
   validate :ingrediente_disponivel
 
   def atualiza_quantidades
+    debugger
     if self.status == "finalizado"
       self
         .ingredientes
