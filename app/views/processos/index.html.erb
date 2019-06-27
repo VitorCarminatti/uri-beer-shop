@@ -27,7 +27,7 @@
           <% if processo.status != 'finalizado' %>
             <td class="warning"><%= link_to 'Editar', edit_processo_path(processo) %></td>
           <% end %>
-          <td class="error"><%= link_to 'Excluir', processo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="error"><%= link_to 'Excluir', processo, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
         </tr>
       <% end %>
     </tbody>

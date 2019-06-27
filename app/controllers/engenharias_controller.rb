@@ -52,16 +52,16 @@ class EngenhariasController < ApplicationController
 
   def produzir
     if !@engenharia.processos.present?
-      redirect_to engenharias_path, notice: 'Engenharia não possui processos para serem finalizados'
+      redirect_to engenharias_path, notice: "Engenharia não possui processos para serem finalizados"
     end
 
     processos = @engenharia.processos
     processos
       .where.not(status: :finalizado)
       .or(processos.where.not(status: :cancelado))
-      .each{|e| e.update(status: :finalizado)}
+      .each { |e| e.update(status: :finalizado) }
 
-    redirect_to engenharias_path, notice: 'Engenharia produzida com sucesso'
+    redirect_to engenharias_path, notice: "Engenharia produzida com sucesso"
   end
 
   private

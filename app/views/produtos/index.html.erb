@@ -20,6 +20,7 @@
             <h5 class="card-title"><%= produto.nome %></h5>
             <p class="card-text"><%= produto.descricao %><p>
             <p class="preco-text">R$: <%= number_with_precision(produto.preco, precision: 2) %><p>
+            <p class="quantidade-text"><%= number_with_precision(produto.quantidade, precision: 2)%> litros disponíveis</p>
 
             <%= link_to 'Editar', edit_produto_path(produto), class: 'btn btn-block custom-primary-btn ' %>
           </div>
@@ -30,3 +31,11 @@
 
   <%= link_to 'Novo Produto', new_produto_path, class: 'btn custom-primary-btn' %>
 </div>
+
+<script>
+  $('.card-text').each(function(){
+    if($(this)[0].innerText.length > 19){
+     $(this)[0].innerText = $(this)[0].innerText.slice(0, 19).concat('...')
+    }
+  })
+</script>

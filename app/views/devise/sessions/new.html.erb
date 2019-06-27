@@ -1,6 +1,11 @@
 <div class="content">
   <div class="login-wrapper">
     <%= image_tag('logo.png') %>
+    <% if flash.present? %>
+      <div class="alert alert-danger">
+        <p class="error-message">Email ou senha inválidos.</p>
+      </div>
+    <% end %>
     <div class="form-group">
       <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal' }) do |f| %>
         <%= f.email_field :email, autofocus: true, placeholder: 'Email', autocomplete: "email", class: 'form-control' %>

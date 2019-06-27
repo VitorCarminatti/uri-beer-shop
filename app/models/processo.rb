@@ -7,10 +7,13 @@ class Processo < ApplicationRecord
 
   after_save :atualiza_quantidades
 
+  validates :nome, presence: true
+  validates :descricao, presence: true
+  validates :quantidade_produzida, presence: true
+
   validate :ingrediente_disponivel
 
   def atualiza_quantidades
-    debugger
     if self.status == "finalizado"
       self
         .ingredientes

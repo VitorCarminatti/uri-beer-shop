@@ -5,8 +5,8 @@ pt-BR:
   error_explanation:
     engenharia:
       count_message:
-        one: "%{count} erro impediu o salvamento deste %{model}"
-        other: "%{count} erros impediram o salvamento deste %{model}"
+        one: "%{count} erro impediu o salvamento deste(a) %{model}"
+        other: "%{count} erros impediram o salvamento deste(a) %{model}"
   activerecord:
     errors:
       messages:
@@ -32,12 +32,24 @@ pt-BR:
               blank: não pode ficar em branco
         ingrediente:
           attributes:
+            nome:
+              blank: não pode ficar em branco
+            descricao:
+              blank: não pode ficar em branco
+            quantidade:
+              blank: não pode ficar em branco
+            quantidade_consumo:
+              blank: não pode ficar em branco
             processo:
-              required: não pode ficar em branco
+              blank: não pode ficar em branco
         processo:
           attributes:
-            engenharia:
-              require: não pode ficar em branco
+            nome:
+              blank: não pode ficar em branco
+            descricao:
+              blank: não pode ficar em branco
+            quantidade_produzida:
+              blank: não pode ficar em branco
     models:
       engenharia:
         one: Engenharia

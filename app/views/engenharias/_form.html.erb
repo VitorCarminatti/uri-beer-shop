@@ -1,20 +1,10 @@
 <div class="form-group">
   <%= simple_form_for @engenharia do |f| %>
-    <% if engenharia.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(engenharia.errors.count, "error") %> prohibited this engenharia from being saved:</h2>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-        <ul>
-        <% engenharia.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :descricao %>
-      <%= f.text_field :descricao, class: 'form-control' %>
+    <div class="form-inputs">
+      <%= f.input :descricao, class: 'form-control' %>
     </div>
 
     <div class="actions button-create">
