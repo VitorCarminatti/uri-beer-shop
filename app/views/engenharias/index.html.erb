@@ -6,12 +6,17 @@
   <% end %>
   <h1 class="title">Engenharias</h1>
 
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :descricao_cont, class: 'form-control' %>
+    <%= f.submit %>
+  <% end %>
+
   <table class="table">
     <thead class="header-table">
       <tr>
-        <th>Descricao</th>
+        <th>Descrição</th>
         <th>Status</th>
-        <th>Usuario</th>
+        <th>Usuário</th>
         <th colspan="4"></th>
       </tr>
     </thead>
@@ -30,6 +35,8 @@
       <% end %>
     </tbody>
   </table>
+
+  <%= will_paginate @engenharias, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
   <br>
 

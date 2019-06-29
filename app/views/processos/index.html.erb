@@ -7,6 +7,11 @@
 
   <h1 class="title">Processos</h1>
 
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :nome_or_descricao_cont, class: 'form-control' %>
+    <%= f.submit %>
+  <% end %>
+
   <table class="table">
     <thead class="header-table">
       <tr>
@@ -32,6 +37,8 @@
       <% end %>
     </tbody>
   </table>
+
+  <%= will_paginate @processos, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
   <br>
 

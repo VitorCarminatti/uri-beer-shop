@@ -82,3 +82,14 @@ input {
   text-align: center;
   background: #aba9c3 !important;
 }
+
+.page-item.active .page-link {
+  background: #df9933;
+  border-color: #df9933;
+}
+
+.pagination {
+  a {
+    color: #df9933;
+  }
+}

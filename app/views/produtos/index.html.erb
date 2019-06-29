@@ -6,6 +6,13 @@
   <% end %>
 
   <h1 class="title">Produtos</h1>
+  <%= link_to 'Novo Produto', new_produto_path, class: 'btn custom-primary-btn' %>
+
+
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :descricao_or_nome_cont, class: 'form-control' %>
+    <%= f.submit %>
+  <% end %>
 
   <div class="cards-produtos">
     <% @produtos.each do |produto| %>
@@ -28,8 +35,6 @@
       <% end %>
     <% end %>
   </div>
-
-  <%= link_to 'Novo Produto', new_produto_path, class: 'btn custom-primary-btn' %>
 </div>
 
 <script>

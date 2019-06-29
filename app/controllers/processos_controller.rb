@@ -4,7 +4,8 @@ class ProcessosController < ApplicationController
   # GET /processos
   # GET /processos.json
   def index
-    @processos = Processo.all
+    @q = Processo.ransack(params[:q])
+    @processos = @q.result(distinct: true).paginate(page: params[:page], per_page: 2)
   end
 
   # GET /processos/1

@@ -64,3 +64,5 @@ gem "select2-rails"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'chartkick'
 gem 'rails-erd'
+gem 'ransack'
+gem 'will_paginate-bootstrap4'

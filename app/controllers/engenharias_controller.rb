@@ -2,7 +2,8 @@ class EngenhariasController < ApplicationController
   before_action :set_engenharia, only: [:show, :edit, :update, :destroy, :produzir]
 
   def index
-    @engenharias = Engenharia.all
+    @q = Engenharia.ransack(params[:q])
+    @engenharias = @q.result(distinct: true).paginate(page: params[:page], per_page: 2)
   end
 
   def show
