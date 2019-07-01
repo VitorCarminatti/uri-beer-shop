@@ -27,7 +27,9 @@
           <td><%= engenharia.descricao %></td>
           <td><%= t engenharia.try(:processos).try(:last).try(:status) || 'Indefinido' %></td>
           <td><%= engenharia.usuario.nome %></td>
-          <td class="action"><%= link_to 'Produzir', produzir_engenharia_path(engenharia), method: :post %></td>
+          <% if engenharia.processos.present? && engenharia.produto.present? %>
+            <td class="action"><%= link_to 'Produzir', produzir_engenharia_path(engenharia), method: :post %></td>
+          <% end %>
           <td class="success"><%= link_to 'Visualizar', engenharia %></td>
           <td class="warning"><%= link_to 'Editar', edit_engenharia_path(engenharia) %></td>
           <td class="error"><%= link_to 'Excluir', engenharia, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
